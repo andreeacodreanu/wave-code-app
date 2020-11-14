@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import repository.CityRepository;
 
+import java.util.List;
+
 @Service
 public class CityService{
 
@@ -14,6 +16,10 @@ public class CityService{
 
     public void insertCity(City city) {
         cityRepository.insert(city);
+    }
+
+    public List<City> getCities() {
+       return cityRepository.findAll();
     }
 
 }
