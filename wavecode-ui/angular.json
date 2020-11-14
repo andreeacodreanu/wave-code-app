@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wavecode-ui"
+    }
+  },
+  "defaultProject": "wavecode-ui",
+  "cli": {
+    "analytics": "65615e96-85a5-42ed-b6dd-d6d817a688b5"
+  }
 }

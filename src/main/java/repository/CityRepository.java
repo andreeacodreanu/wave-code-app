@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CityRepository extends MongoRepository<City, String> {
-    List<City> getAll();
+//    List<City> getAll();
 }

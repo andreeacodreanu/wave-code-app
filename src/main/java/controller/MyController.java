@@ -2,22 +2,29 @@ package controller;
 
 import lombok.var;
 import model.City;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import service.CityService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class MyController {
+    @Autowired
+    public CityService cityService;
 
     @GetMapping(value = "/cities")
-    public List<City> getCities() {
+    public String getCities() {
 
-        var cities = new ArrayList<City>();
-        cities.add(new City(1L, "Bratislava", 432000));
-        cities.add(new City(2L, "Budapest", 1759000));
+        City city = new City();
+        city.setName("lalalalala");
+        city.setPopulation(123456789);
 
-        return cities;
+        cityService.insertCity(city);
+
+
+        return "cities";
     }
 }
