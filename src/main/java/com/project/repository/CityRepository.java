@@ -1,6 +1,6 @@
-package repository;
+package com.project.repository;
 
-import model.City;
+import com.project.model.City;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

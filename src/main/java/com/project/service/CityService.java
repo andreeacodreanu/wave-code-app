@@ -1,10 +1,9 @@
-package service;
+package com.project.service;
 
-import model.City;
+import com.project.model.City;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import repository.CityRepository;
+import com.project.repository.CityRepository;
 
 import java.util.List;
 

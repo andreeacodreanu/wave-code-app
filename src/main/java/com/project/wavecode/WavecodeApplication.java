@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import repository.CityRepository;
+import com.project.repository.CityRepository;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"controller", "service", "repository"})
+@ComponentScan(basePackages={"com.project"})
 @EnableMongoRepositories(basePackageClasses = CityRepository.class)
 public class WavecodeApplication {
 
