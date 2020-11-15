@@ -12,7 +12,7 @@ export class CityService {
   ) { }
 
   getCities() {
-    return this.http.get('/api/getCities');
+    return this.http.get(environment.API_URL + '/getCities');
   }
 
 }

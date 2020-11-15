@@ -11,7 +11,6 @@ import com.project.service.CityService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MyController {
     @Autowired
     public CityService cityService;
@@ -28,7 +27,6 @@ public class MyController {
         return "cities";
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/getCities")
     public List<City> getCities() {
 
