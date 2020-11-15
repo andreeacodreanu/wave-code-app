@@ -1,6 +1,8 @@
 
-{{cities}}
-
+<div *ngFor="let city of cities">
+  <div>{{city.name}}</div>
+  <div>{{city.population}}</div>
+</div>
 
 <!--&lt;!&ndash; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * &ndash;&gt;-->
 <!--&lt;!&ndash; * * * * * * * * * * * The content below * * * * * * * * * * * &ndash;&gt;-->

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CityService} from "./service/city.service";
 import {take} from "rxjs/operators";
+import {City} from "./model/city.model";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import {take} from "rxjs/operators";
 export class AppComponent implements OnInit{
   title = 'wavecode-ui';
 
-  cities;
+  cities: City[];
 
   constructor(
     private citiService: CityService
@@ -18,8 +19,8 @@ export class AppComponent implements OnInit{
 
   async ngOnInit() {
     this.cities = await this.citiService.getCities().pipe(take(1)).toPromise();
+    console.log(this.cities);
   }
-
 
 }
 
