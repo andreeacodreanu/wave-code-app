@@ -2,19 +2,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {AppComponent} from "./app.component";
+import {authInterceptorProviders} from "./interceptor/auth.interceptor";
+import {LoginComponent} from "./components/login/login.component";
+import {RegisterComponent} from "./components/register/register.component";
+import {HomeComponent} from "./components/home/home.component";
+import {ProfileComponent} from "./components/profile/profile.component";
+import {BoardAdminComponent} from "./components/board-admin/board-admin.component";
+import {BoardUserComponent} from "./components/board-user/board-user.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
-  providers: [HttpClient],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

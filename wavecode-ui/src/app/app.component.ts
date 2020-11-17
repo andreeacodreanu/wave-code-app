@@ -1,27 +1,34 @@
-import {Component, OnInit} from '@angular/core';
-import {CityService} from "./service/city.service";
-import {take} from "rxjs/operators";
-import {City} from "./model/city.model";
+import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from "./service/token-storage.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  title = 'wavecode-ui';
+export class AppComponent implements OnInit {
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  username: string;
 
-  cities: City[];
+  constructor(private tokenStorageService: TokenStorageService) { }
 
-  constructor(
-    private citiService: CityService
-  ) { }
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
 
-  async ngOnInit() {
-    this.cities = await this.citiService.getCities().pipe(take(1)).toPromise();
-    console.log(this.cities);
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+
+      this.username = user.username;
+    }
   }
 
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
 }
-
-
